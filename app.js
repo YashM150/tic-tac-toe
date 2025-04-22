@@ -3,6 +3,9 @@ let resetBtn = document.querySelector("#reset-btn");
 let newGameBtn = document.querySelector("#new-btn");
 let msgContainer = document.querySelector(".msg-container");
 let msg = document.querySelector("#msg");
+let gameHeading= document.querySelector(".game-heading");
+let playerTurn = document.querySelector("#player-turn");
+
 
 let turnO = true; //playerX, playerO
 let count = 0; //To Track Draw
@@ -26,15 +29,20 @@ const resetGame = () => {
 };
 
 boxes.forEach((box) => {
+  playerTurn.innerText = "O Plays";
   box.addEventListener("click", () => {
     if (turnO) {
+    
       //playerO
       box.innerText = "O";
       turnO = false;
+      playerTurn.innerText = "X Plays";
     } else {
+      
       //playerX
       box.innerText = "X";
       turnO = true;
+      playerTurn.innerText = "O Plays";
     }
     box.disabled = true;
     count++;
